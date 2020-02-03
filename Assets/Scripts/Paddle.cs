@@ -5,7 +5,7 @@ using UnityEngine;
 public class Paddle : MonoBehaviour
 {
 
-    public float speed = 5f;
+    public float speed = 20f;
 
 	public bool isPaddleA;
 	
@@ -20,7 +20,7 @@ public class Paddle : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float step = speed * Time.deltaTime;
 
