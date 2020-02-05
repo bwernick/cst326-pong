@@ -28,6 +28,8 @@ public class Ball : MonoBehaviour
     {
         Vector3 normalizedVel = rb.velocity.normalized;
         rb.AddForce(normalizedVel * acceleration);
+
+        GetComponent<AudioSource>().pitch = 1f + (rb.velocity.magnitude / 5f);
     }
 
     void OnCollisionEnter(Collision col)
