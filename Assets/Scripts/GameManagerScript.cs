@@ -5,13 +5,14 @@ using UnityEngine;
 public class GameManagerScript : MonoBehaviour
 {
     public int playerAScore, playerBScore;
-    public Ball gameBall;
+    public Ball ball;
 
     // Start is called before the first frame update
     void Start()
     {
         //playerAScore = 0;
         //playerBScore = 0;
+        
     }
 
     // Update is called once per frame
@@ -53,7 +54,7 @@ public class GameManagerScript : MonoBehaviour
         // reset the scores
         //playerAScore = 0;
         //playerBScore = 0;
-        gameBall.Reset();
+        ball.Reset();
     }
 
 }

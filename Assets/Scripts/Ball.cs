@@ -10,6 +10,8 @@ public class Ball : MonoBehaviour
     public float speed = 5f;
 	public float acceleration = 5f;
 
+    public AudioClip clip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,10 @@ public class Ball : MonoBehaviour
 
         //Set the velocity of the ball, which has a rigidbody
         rb.velocity = new Vector3(speed * randX, speed * randY, 0f);
+
+        GetComponent<AudioSource>().playOnAwake = false;
+        GetComponent<AudioSource>().clip = clip;
+
     }
 
     // Update is called once per frame
@@ -48,6 +54,11 @@ public class Ball : MonoBehaviour
             float randY = Random.Range(0, 2) == 0 ? -1 : 1;
             float temp_x = 1;
             rb.velocity = new Vector3(speed * temp_x, speed * randY, 0f);
+        }
+
+        if((col.gameObject.name == "paddleA") || (col.gameObject.name == "paddleB"))
+        {
+            GetComponent<AudioSource>().Play();
         }
     }
 

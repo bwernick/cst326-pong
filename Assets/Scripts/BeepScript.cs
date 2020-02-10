@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class BeepScript : MonoBehaviour
 {
-    public AudioClip paddleBounce;
-    public AudioClip goal;
+    public AudioClip clip;
     public AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        //audio = GetComponent<AudioSource>();
+        audio.playOnAwake = false;
+        audio.clip = clip;
     }
 
     // Update is called once per frame
@@ -22,14 +23,6 @@ public class BeepScript : MonoBehaviour
 
     void OnCollisionEnter(Collision col)  //Plays Sound Whenever collision detected
     {
-        if ((col.gameObject.name == "paddleA") || (col.gameObject.name == "paddleB"))
-        {
-            audio.PlayOneShot(paddleBounce, 1f);
-        }
-
-        if ((col.gameObject.name == "goalA") || (col.gameObject.name == "goalB"))
-        {
-            audio.PlayOneShot(goal, 1f);
-        }
+        audio.Play();
     }
 }

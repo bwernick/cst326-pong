@@ -25,6 +25,7 @@ public class Goal : MonoBehaviour
         if (col.gameObject.name == "ball")
         {
             manager.GoalScored(attackingPlayer);
+            //Destroy(col.gameObject);
         }
     }
 }
